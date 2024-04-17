@@ -1,0 +1,380 @@
+@import "./var";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+body {
+  min-height: 100vh;
+}
+
+.app {
+  max-width: $w;
+  min-height: 100dvh;
+  padding-top: 20px;
+  //background: blue;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 80px 50px 310px 40px min-content;
+  padding-inline: $space;
+  .nav_app {
+    position: fixed;
+    height: 100dvh;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    background: rgba(#000, 0.4);
+    z-index: 99;
+    box-shadow: inset 75vw 0 rgba(#000, 0.92);
+    display: flex;
+    flex-direction: column;
+    .logo_2 {
+      width: 75vw;
+      height: 80px;
+      background: rgba(#000, 1);
+      display: flex;
+      align-items: center;
+      padding-inline: $space;
+      button {
+        &.logo {
+          font-size: 25px;
+          text-transform: uppercase;
+          font-weight: 900;
+          background: transparent;
+          color: $whait;
+          border: none;
+        }
+      }
+    }
+    .list_2 {
+      width: 75vw;
+      flex: 1;
+      //background: rgba(255, 106, 235, 0.575);
+      padding-inline: $space;
+      padding-block: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: $space;
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 18px;
+          font-weight: 600;
+          color: $whait;
+          //background: red;
+          display: block;
+          padding-block: 4px;
+          padding-inline: $space;
+        }
+      }
+    }
+  }
+  .nav {
+    grid-column: 1/6;
+    height: 80px;
+    background: $whait;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    button {
+      height: 32px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &.logo {
+        margin: 0 auto;
+        font-size: 30px;
+        text-transform: uppercase;
+        font-weight: 900;
+        background: transparent;
+        color: $black;
+      }
+      &:nth-child(1),
+      &:nth-child(2) {
+        background: $black;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        color: $whait;
+        i {
+          font-size: 20px;
+        }
+      }
+      &.login {
+        padding-inline: 25px;
+        border-radius: 18px;
+        border: 1px solid $black;
+        background: transparent;
+        font-weight: 600;
+      }
+      &.btn_icon {
+        background: transparent;
+      }
+      &.menu {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
+  .list {
+    background: transparent;
+    grid-column: 1/6;
+    ul {
+      display: flex;
+      height: 100%;
+      border: 1px solid $black;
+      li {
+        flex: 1;
+        background: $whait;
+        list-style: none;
+        &:not(:first-child) {
+          border-left: 1px solid $black;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          text-decoration: none;
+          color: $black;
+          text-transform: capitalize;
+          box-shadow: inset 0 0 $black;
+          transition: box-shadow 0.2s ease-in-out, color 0.1s ease-in-out;
+          &:hover {
+            box-shadow: inset 0 -50px $black;
+            color: $whait;
+          }
+        }
+      }
+    }
+  }
+  .img_section {
+    grid-column: 1/6;
+    background-image: url("/public/images/bg.jpg");
+    background-size: cover;
+    margin-block: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    .box {
+      height: 100%;
+      width: 100%;
+      background: goldenrod;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      position: relative;
+      box-shadow: $box-shadow;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 10%;
+        &.img_text {
+          position: absolute;
+          inset: 0;
+          z-index: 5;
+          width: 80%;
+          height: 80%;
+          top: 0;
+          left: 10%;
+          pointer-events: none;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+  .about_us {
+    //background: gray;
+    grid-column: 1/6;
+    display: flex;
+    gap: 5%;
+    p {
+      flex: 1;
+      text-transform: capitalize;
+      color: $black;
+    }
+    a {
+      height: 32px;
+      background: $black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-inline: 60px;
+      color: $whait;
+      text-decoration: none;
+      border-radius: 20px;
+    }
+  }
+  section.boxs {
+    //background: green;
+    margin-block: 40px;
+    grid-column: 1/6;
+    display: grid;
+    border: 1px solid $black;
+    grid-template-columns: repeat(5, 1fr);
+    .box {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid $black;
+
+      &:last-child {
+        border-right: 1px solid transparent;
+      }
+      .photo {
+        width: 100%;
+        aspect-ratio: 3/2;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 80%;
+          aspect-ratio: 3/2;
+          object-fit: cover;
+          box-shadow: $box-shadow;
+          transition: all 0.2s linear;
+        }
+      }
+      .title {
+        flex: 1;
+        //background: grey;
+        border-top: 1px solid $black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-block: 13.5px;
+
+        span {
+          font-size: 16px;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+@include media("phone") {
+  .app {
+    padding-inline: $space;
+    padding-top: 0;
+    grid-template-rows: 80px min-content 310px min-content min-content;
+    .nav button.logo {
+      margin: 0 auto;
+      font-size: 25px;
+      text-transform: uppercase;
+      font-weight: 900;
+      background: transparent;
+    }
+    .nav {
+      justify-content: space-between;
+      button {
+        &:not(.show_phone) {
+          display: none;
+        }
+        &.logo {
+          margin: 0;
+        }
+        &.menu {
+          aspect-ratio: 1;
+          border-radius: 6px;
+          background: darken($whait, 3%);
+        }
+        &.menu {
+          display: block;
+          visibility: visible;
+        }
+      }
+    }
+    .about_us {
+      grid-column: 1/6;
+      display: flex;
+      flex-direction: column;
+      gap: $space;
+      p {
+        font-size: 14px;
+      }
+      a {
+        height: 36px;
+      }
+    }
+    .list {
+      background: transparent;
+      grid-column: 1/6;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        border: none !important;
+        gap: $space;
+        li {
+          height: 30px;
+          padding-inline: 20px;
+          border: none !important;
+          background: darken($whait, 3%);
+          //border-radius: 8px;
+          box-shadow: 0 0 0 1px $black;
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .app .img_section .box img.img_text {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+  }
+
+  .app section.boxs {
+    margin-block: 40px;
+    grid-column: 1/6;
+    display: grid;
+    border: none !important;
+    grid-template-columns: 1fr 1fr;
+    gap: $space;
+    .box {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #222;
+      &:last-child {
+        border: 1px solid #222;
+      }
+      .title {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-block: 9px;
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .app .nav_app {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+    &_show {
+      left: 0;
+    }
+  }
+}

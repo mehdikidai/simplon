@@ -1,0 +1,33 @@
+$w: 1200px;
+$whait: #fff;
+$black: #222;
+$box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+$space:15px;
+
+
+button,
+div,
+a,
+li {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+@mixin media($breakpoint) {
+    @if ($breakpoint == "desktop") {
+      @media (max-width: 1200px) {
+        @content;
+      }
+    }
+    @if ($breakpoint == "ipad") {
+      @media (max-width: 1080px) {
+        @content;
+      }
+    }
+    @if ($breakpoint == "phone") {
+      @media (max-width: 600px) {
+        @content;
+      }
+    }
+  }
