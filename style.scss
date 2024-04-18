@@ -324,13 +324,14 @@ body {
         gap: $space;
         li {
           height: 30px;
-          padding-inline: 20px;
+          
           border: none !important;
           background: darken($whait, 3%);
           //border-radius: 8px;
           box-shadow: 0 0 0 1px $black;
           a {
             font-size: 14px;
+            padding-inline: 20px;
           }
         }
       }
@@ -389,4 +390,6 @@ body {
   .app .about_us a {
     border-radius: 0;
   }
+
+  
 }
