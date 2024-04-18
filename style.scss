@@ -295,7 +295,9 @@ body {
           background: darken($whait, 3%);
         }
         &.menu {
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           visibility: visible;
         }
       }
